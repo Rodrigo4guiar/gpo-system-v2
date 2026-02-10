@@ -1,12 +1,209 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPO System - v3.2</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPO - Gestão de Projetos Otimizados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1e293b; margin: 0; }
+        .hero-bg { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426'); background-size: cover; background-position: center; }
+        .plan-card:hover { transform: translateY(-8px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        html { scroll-behavior: smooth; }
+        .hidden { display: none !important; }
+        
+        /* Efeito Hover Neon (Card Mágico) */
+        :root { --neon-1: #06b6d4; --neon-2: #3b82f6; --neon-3: #6366f1; }
+        .magic-card { position: relative; background: #fff; overflow: hidden; border-radius: 24px; transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .magic-card::before { content: ''; position: absolute; width: 150%; height: 150%; background: conic-gradient(from 0deg, var(--neon-1), var(--neon-2), var(--neon-3), var(--neon-1)); animation: rotate 4s linear infinite; opacity: 0; transition: opacity 0.3s ease; top: -25%; left: -25%; }
+        .magic-card:hover::before { opacity: 1; filter: blur(20px); }
+        .magic-card::after { content: ''; position: absolute; inset: 3px; background: #fff; border-radius: 21px; z-index: 1; }
+        .card-inner { position: relative; z-index: 10; width: 100%; height: 100%; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="selection:bg-cyan-500/30">
+
+    <!-- VIEW: LANDING PAGE -->
+    <div id="view-landing">
+        <header class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 md:px-16 py-5 flex justify-between items-center text-slate-800">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-black shadow-lg">GPO</div>
+                <span class="font-black text-xl tracking-tighter uppercase">GPO</span>
+            </div>
+            <button onclick="navigateTo('login')" class="bg-slate-900 text-white px-8 py-2.5 rounded-full font-bold text-sm hover:bg-cyan-600 transition-all shadow-lg shadow-slate-900/10">Acessar Sistema</button>
+        </header>
+
+        <section class="min-h-screen hero-bg flex flex-col items-center justify-center text-center px-6 relative">
+            <h1 class="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight max-w-5xl leading-tight text-center">GPO Gestão de Projetos <br/><span class="text-cyan-400">Otimizados</span></h1>
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed font-medium">A plataforma completa para transformar a gestão dos seus projetos em resultados extraordinários</p>
+            <button onclick="document.getElementById('planos').scrollIntoView()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-12 py-4 rounded-2xl font-black text-xl shadow-2xl shadow-cyan-600/40 transition-all active:scale-95">Começar Agora</button>
+        </section>
+
+        <!-- FUNCIONALIDADES -->
+        <section id="funcionalidades" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tight uppercase">Funcionalidades Poderosas</h2>
+                <p class="text-slate-500 text-lg">Ferramentas completas para gerenciar seus projetos com eficiência e simplicidade</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-cyan-50 rounded-2xl flex items-center justify-center text-cyan-600 mb-8 group-hover:bg-cyan-500 group-hover:text-white transition-colors"><i data-lucide="layout-dashboard" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Gestão Inteligente</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Organize e acompanhe múltiplos projetos simultaneamente com dashboards intuitivos e relatórios em tempo real</p>
+                </div></div>
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-500 group-hover:text-white transition-colors"><i data-lucide="users-2" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Colaboração em Equipe</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Gerencie usuários, defina permissões e mantenha toda a equipe alinhada com ferramentas colaborativas</p>
+                </div></div>
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-500 group-hover:text-white transition-colors"><i data-lucide="clock" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Acompanhamento em Tempo Real</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Monitore o progresso, prazos e entregas com notificações automáticas e alertas inteligentes</p>
+                </div></div>
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center text-rose-600 mb-8 group-hover:bg-rose-500 group-hover:text-white transition-colors"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Segurança e Controle</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Dados protegidos com criptografia avançada e controle total sobre acessos e permissões</p>
+                </div></div>
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-8 group-hover:bg-orange-500 group-hover:text-white transition-colors"><i data-lucide="target" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Metas e objetivos</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Defina metas claras, siga KPIs e tome decisões baseadas em dados concretos</p>
+                </div></div>
+                <div class="magic-card p-10 group bg-white"><div class="card-inner text-left">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 mb-8 group-hover:bg-indigo-500 group-hover:text-white transition-colors"><i data-lucide="mouse-pointer-2" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-black mb-4">Interface Intuitiva</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Design moderno e fácil de usar, pensado para maximizar sua produtividade sem curva de aprendizado</p>
+                </div></div>
+            </div>
+        </section>
+
+        <!-- QUEM SOMOS -->
+        <section id="quem-somos" class="bg-slate-50 py-32 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-4xl font-black text-slate-900 mb-4 uppercase tracking-tight">Quem Somos</h2>
+                <p class="text-cyan-600 text-lg font-bold">Somos uma equipe dedicada a revolucionar a forma como gerenciarem seus projetos</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-20">
+                    <div class="bg-white p-12 rounded-[3rem] border border-slate-100 shadow-lg">
+                        <h3 class="text-cyan-600 font-black uppercase tracking-widest text-xs mb-6">Nossa Missão</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Empoderar empresas de todos os tamanhos com ferramentas de gestão de projetos acessíveis, eficientes e intuitivas, impulsionando o sucesso através da organização e colaboração.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3rem] border border-slate-100 shadow-lg">
+                        <h3 class="text-blue-600 font-black uppercase tracking-widest text-xs mb-6">Nossa Visão</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Ser a plataforma líder em gestão de projetos no Brasil, reconhecida pela excelência, inovação e pelo impacto positivo na produtividade das empresas brasileiras.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3rem] border border-slate-100 shadow-lg">
+                        <h3 class="text-emerald-600 font-black uppercase tracking-widest text-xs mb-6">Nossos Valores</h3>
+                        <ul class="text-slate-600 text-sm space-y-3 font-medium"><li>• Transparência e ética</li><li>• Inovação constante</li><li>• Foco no cliente</li><li>• Excelência em resultados</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos" class="py-32 px-6 max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-black text-slate-900 mb-20 tracking-tight uppercase">Escolha Seu Plano</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="magic-card p-8 flex flex-col items-start cursor-pointer" onclick="navigateTo('login')">
+                    <div class="card-inner w-full">
+                        <h3 class="text-slate-400 font-black uppercase tracking-widest text-[10px] mb-2 tracking-widest">Gratuito</h3>
+                        <div class="text-3xl font-black text-slate-800 mb-8">R$ 0<span class="text-sm font-medium text-slate-400">/mês</span></div>
+                        <ul class="text-[11px] space-y-4 mb-10 flex-grow text-slate-500 font-medium"><li>Para começar sua jornada</li><li>• Cadastro pessoal completo</li><li>• Acesso básico à plataforma</li><li>• Explorar funcionalidades</li><li>• Sem cartão de crédito</li></ul>
+                        <button class="w-full py-4 rounded-2xl bg-slate-50 text-slate-800 font-black text-xs uppercase hover:bg-slate-900 hover:text-white transition-all">Começar Grátis</button>
+                    </div>
+                </div>
+                <div class="magic-card p-8 flex flex-col items-start cursor-pointer" onclick="navigateTo('login')">
+                    <div class="card-inner w-full">
+                        <h3 class="text-blue-500 font-black uppercase tracking-widest text-[10px] mb-2 tracking-widest">Básico</h3>
+                        <div class="text-3xl font-black text-slate-800 mb-8">R$ 49<span class="text-sm font-medium text-slate-400">/mês</span></div>
+                        <ul class="text-[11px] space-y-4 mb-10 flex-grow text-slate-500 font-medium"><li>Para profissionais autônomos</li><li>• Cadastro pessoal + empresa</li><li>• 1 CNPJ vinculado</li><li>• 1 projeto ativo por vez</li><li>• Relatórios básicos</li></ul>
+                        <button class="w-full py-4 rounded-2xl bg-blue-600 text-white font-black text-xs uppercase hover:bg-blue-700 transition-all">Assinar Básico</button>
+                    </div>
+                </div>
+                <div class="magic-card p-8 flex flex-col items-start scale-105 z-10 cursor-pointer border-2 border-cyan-500 shadow-2xl" onclick="navigateTo('login')">
+                    <div class="card-inner w-full relative">
+                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-slate-900 font-black text-[9px] px-4 py-1.5 rounded-full uppercase tracking-tighter shadow-lg">Mais Popular</span>
+                        <h3 class="text-cyan-600 font-black uppercase tracking-widest text-[10px] mb-2 tracking-widest">Profissional</h3>
+                        <div class="text-3xl font-black text-slate-800 mb-8">R$ 149<span class="text-sm font-medium text-slate-400">/mês</span></div>
+                        <ul class="text-[11px] space-y-4 mb-10 flex-grow text-slate-700 font-bold"><li>Para pequenas empresas</li><li>• Até 5 CNPJs cadastrados</li><li>• 3 usuários por CNPJ</li><li>• Até 10 usuários (add. pago)</li><li>• Projetos ilimitados</li><li>• Relatórios avançados</li></ul>
+                        <button class="w-full py-4 rounded-2xl bg-cyan-600 text-white font-black text-xs uppercase shadow-xl hover:bg-cyan-500 transition-all">Assinar Profissional</button>
+                    </div>
+                </div>
+                <div class="magic-card p-8 flex flex-col items-start cursor-pointer" onclick="navigateTo('login')">
+                    <div class="card-inner w-full">
+                        <h3 class="text-indigo-600 font-black uppercase tracking-widest text-[10px] mb-2 tracking-widest">Organizacional</h3>
+                        <div class="text-3xl font-black text-slate-800 mb-8">R$ 499<span class="text-sm font-medium text-slate-400">/mês</span></div>
+                        <ul class="text-[11px] space-y-4 mb-10 flex-grow text-slate-500 font-medium"><li>Para grandes empresas</li><li>• CNPJs ilimitados</li><li>• 20 usuários por CNPJ</li><li>• Usuários adicionais pagos</li><li>• Projetos ilimitados</li><li>• Suporte prioritário 24/7</li><li>• API e integrações</li></ul>
+                        <button class="w-full py-4 rounded-2xl bg-indigo-600 text-white font-black text-xs uppercase hover:bg-indigo-700 transition-all shadow-lg">Assinar Organizacional</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 py-20 px-6 text-center text-white border-t border-white/5">
+            <h2 class="text-2xl font-black mb-2 tracking-tighter uppercase">GPO - Gestão de Projetos Otimizados</h2>
+            <p class="text-cyan-400 font-medium text-sm mb-12 italic text-center mx-auto leading-relaxed">Transformando a gestão de projetos em resultados</p>
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">© 2026 GPO. TODOS OS DIREITOS RESERVADOS.</p>
+        </footer>
+    </div>
+
+    <!-- VIEW: LOGIN -->
+    <div id="view-login" class="min-h-screen hidden bg-[#f4f7f9] flex items-center justify-center p-6 text-center">
+        <div class="bg-white max-w-md w-full p-12 rounded-[2.5rem] shadow-2xl border border-slate-100">
+            <div class="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-8 shadow-lg shadow-cyan-500/30"><i data-lucide="shield-check"></i></div>
+            <h2 class="text-xl font-black text-slate-800 uppercase tracking-tighter mb-1">Fluxo de Projetos Otimizados</h2>
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-10 text-center">Sistema de Gestão de Projetos</p>
+            <div class="space-y-6 text-left">
+                <div><label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">E-mail Corporativo</label><input type="email" placeholder="empresa@email.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-cyan-500 transition-all text-sm"></div>
+                <div><label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Senha</label><input type="password" placeholder="••••••••" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-cyan-500 transition-all text-sm"></div>
+                <button onclick="navigateTo('portal')" class="w-full bg-cyan-500 text-white font-black p-4 rounded-2xl shadow-xl hover:bg-cyan-600 transition-all uppercase text-xs tracking-widest">Entrar</button>
+            </div>
+            <div class="mt-10 pt-8 border-t border-slate-100 space-y-4">
+                <button onclick="navigateTo('cadastro-pf')" class="text-slate-400 font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 mx-auto">Criar Cadastro Pessoa Física</button>
+                <button onclick="navigateTo('landing')" class="text-slate-300 font-bold text-[10px] uppercase flex items-center gap-2 mx-auto mt-6"><i data-lucide="arrow-left" class="w-3 h-3"></i> Voltar para inicial</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: PORTAL (FIGMA-FIDELITY) -->
+    <div id="view-portal" class="min-h-screen hidden flex flex-col bg-[#f8fafc]">
+        <header class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-[100] shadow-sm">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-black">G</div>
+                <div><h1 class="text-sm font-bold text-slate-800 leading-none tracking-tighter uppercase">GPO - <span class="text-cyan-600 tracking-widest">Dashboard</span></h1></div>
+            </div>
+            <div class="flex items-center gap-6"><div class="bg-cyan-50 border border-cyan-100 px-4 py-1.5 rounded-full text-xs font-black text-cyan-700">1.000 $AXI</div><button class="bg-indigo-600 text-white text-[10px] uppercase font-black px-4 py-2 rounded-xl">Mensagens <span class="bg-white/20 px-1 rounded ml-1">3</span></button><button onclick="navigateTo('landing')" class="text-slate-300 hover:text-rose-500 transition-colors"><i data-lucide="log-out" class="w-5 h-5"></i></button></div>
+        </header>
+        <main class="p-6 md:p-12 max-w-7xl mx-auto w-full flex-grow">
+            <h2 class="text-3xl font-black text-slate-800 tracking-tighter mb-10 text-left leading-none">Bem-vindo, Rodrigo4guiar!</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="magic-card h-40 shadow-xl"><div class="card-inner p-8 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-green-500 font-black text-xs">+12%</span><i data-lucide="folder" class="text-slate-200"></i></div><div><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest opacity-60">Projetos Ativos</p><p class="text-4xl font-black text-slate-800">24</p></div></div></div>
+                <div class="magic-card h-40 shadow-xl"><div class="card-inner p-8 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-blue-500 font-black text-xs">+8%</span><i data-lucide="users" class="text-slate-200"></i></div><div><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest opacity-60">Membros Equipe</p><p class="text-4xl font-black text-slate-800">156</p></div></div></div>
+                <div class="magic-card h-40 shadow-xl"><div class="card-inner p-8 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-emerald-500 font-black text-xs">+24%</span><i data-lucide="check-circle" class="text-slate-200"></i></div><div><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest opacity-60">Taxa Conclusão</p><p class="text-4xl font-black text-slate-800">87%</p></div></div></div>
+                <div class="magic-card h-40 shadow-xl"><div class="card-inner p-8 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-rose-500 font-black text-xs">3</span><i data-lucide="clock" class="text-slate-200"></i></div><div><p class="text-[10px] font-black text-slate-400 uppercase tracking-widest opacity-60 text-left">Tarefas Atrasadas</p><p class="text-4xl font-black text-slate-800 tracking-tighter">08</p></div></div></div>
+            </div>
+            <div class="p-20 bg-white rounded-[3rem] border border-slate-100 shadow-2xl text-center"><p class="text-slate-400 font-bold uppercase tracking-widest">Performance Geral <span class="text-cyan-600 font-black">+18%</span></p></div>
+        </main>
+    </div>
+
+    <!-- VIEW: CADASTRO PF (Simplificado para o exemplo) -->
+    <div id="view-cadastro-pf" class="min-h-screen hidden bg-white p-10 flex flex-col items-center justify-center">
+        <h2 class="text-2xl font-black mb-6 uppercase">Cadastro Pessoa Física</h2>
+        <button onclick="navigateTo('login')" class="text-cyan-600 font-black uppercase text-xs tracking-widest border border-cyan-100 px-6 py-2 rounded-xl">Voltar para o login</button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function navigateTo(id) { 
+            document.querySelectorAll('body > div').forEach(div => div.classList.add('hidden')); 
+            const target = document.getElementById('view-' + id);
+            if(target) target.classList.remove('hidden'); 
+            window.scrollTo(0,0); 
+            lucide.createIcons(); 
+        }
+    </script>
+</body>
 </html>
