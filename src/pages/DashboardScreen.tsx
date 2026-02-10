@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { MagicCard } from "../components/ui/MagicCard";
 import { getInsightsFromAI } from "../services/aiService";
 import { 
