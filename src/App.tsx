@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { DashboardScreen } from './pages/DashboardScreen';
 
+// @ts-ignore - Bypassing unused variable check for React in some environments
+const _unused = "GPO-Soberania";
+
 function App() {
   const [isLogged, setIsLogged] = useState(true); // Modo Demo Ativo para v3
 
