@@ -36,16 +36,16 @@
             </div>
             <button onclick="navigateTo('login')" class="bg-slate-900 text-white px-8 py-2.5 rounded-full font-bold text-sm hover:bg-cyan-600 transition-all">Começar Agora</button>
         </header>
-        <section class="min-h-screen hero-bg flex flex-col items-center justify-center text-center px-6 relative">
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tight max-w-5xl leading-[0.9]">Gestão de Projetos <br/><span class="text-cyan-400 italic">Otimizados</span></h1>
+        <section class="min-h-screen hero-bg flex flex-col items-center justify-center text-center px-6 relative text-white">
+            <h1 class="text-5xl md:text-8xl font-black mb-6 tracking-tight max-w-5xl leading-[0.9]">Gestão de Projetos <br/><span class="text-cyan-400 italic">Otimizados</span></h1>
             <p class="text-slate-200 text-lg md:text-2xl max-w-3xl mb-12 leading-relaxed font-medium">A plataforma completa para transformar a gestão dos seus projetos em resultados extraordinários</p>
-            <button onclick="document.getElementById('planos').scrollIntoView()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-12 py-5 rounded-[2rem] font-black text-xl shadow-2xl shadow-cyan-600/40 transition-all">Explorar Planos</button>
+            <button onclick="document.getElementById('planos').scrollIntoView()" class="bg-cyan-600 hover:bg-cyan-500 text-white px-12 py-5 rounded-[2rem] font-black text-xl shadow-2xl shadow-cyan-600/40 transition-all">Começar Agora</button>
         </section>
         <section id="planos" class="py-40 px-6 max-w-7xl mx-auto text-center">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="magic-card p-10 flex flex-col cursor-pointer" onclick="navigateTo('login')">
                     <div class="card-inner">
-                        <h3 class="text-slate-400 font-black uppercase tracking-widest text-[10px] mb-2 tracking-widest">Gratuito</h3>
+                        <h3 class="text-slate-400 font-black uppercase tracking-widest text-[10px] mb-2">Gratuito</h3>
                         <div class="text-4xl font-black text-slate-800 mb-8 tracking-tighter">R$ 0<span class="text-sm font-medium text-slate-400 italic">/mês</span></div>
                         <button class="w-full py-4 rounded-2xl bg-slate-50 text-slate-800 font-black text-[10px] uppercase tracking-widest">Começar Grátis</button>
                     </div>
@@ -73,7 +73,7 @@
         <header class="bg-white border-b border-slate-200 px-8 py-5 flex items-center justify-between sticky top-0 z-[100] shadow-sm">
             <div class="flex items-center gap-4">
                 <div class="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-black">G</div>
-                <h1 class="text-sm font-bold text-slate-800 leading-none tracking-tighter uppercase">GPO SYSTEM</h1>
+                <h1 class="text-sm font-bold text-slate-800 leading-none tracking-tighter uppercase leading-none">GPO SYSTEM</h1>
             </div>
             <div class="flex items-center gap-4">
                 <nav class="hidden lg:flex items-center gap-8 mr-8">
@@ -92,10 +92,26 @@
             <div id="tab-dashboard" class="animate-in fade-in duration-500">
                 <h2 class="text-4xl font-black text-slate-800 tracking-tighter mb-12 text-left">Bem-vindo, Rodrigo4guiar!</h2>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-green-500 font-black text-sm">+12%</span><i data-lucide="folder" class="text-slate-200"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Projetos Ativos</p><p class="text-5xl font-black text-slate-800">24</p></div></div></div>
-                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-blue-500 font-black text-sm">+8%</span><i data-lucide="users" class="text-slate-200"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Membros</p><p class="text-5xl font-black text-slate-800">156</p></div></div></div>
-                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-green-500 font-black text-sm">+24%</span><i data-lucide="check-circle" class="text-slate-200"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Entrega</p><p class="text-5xl font-black text-slate-800">87%</p></div></div></div>
-                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-rose-500 font-black text-sm">3</span><i data-lucide="clock" class="text-slate-200"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60 text-left">Atrasadas</p><p class="text-5xl font-black text-slate-800 leading-none">08</p></div></div></div>
+                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-green-500 font-black text-sm">+12%</span><i data-lucide="folder" class="text-slate-200 w-6 h-6"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Projetos Ativos</p><p class="text-5xl font-black text-slate-800 tracking-tighter leading-none">24</p></div></div></div>
+                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-blue-500 font-black text-sm">+8%</span><i data-lucide="users" class="text-slate-200 w-6 h-6"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Membros</p><p class="text-5xl font-black text-slate-800 tracking-tighter leading-none">156</p></div></div></div>
+                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-green-500 font-black text-sm">+24%</span><i data-lucide="check-circle" class="text-slate-200 w-6 h-6"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60">Entrega</p><p class="text-5xl font-black text-slate-800 tracking-tighter leading-none">87%</p></div></div></div>
+                    <div class="magic-card h-44 shadow-xl"><div class="card-inner p-10 flex flex-col justify-between text-left"><div class="flex justify-between items-start"><span class="text-rose-500 font-black text-sm">3</span><i data-lucide="clock" class="text-slate-200 w-6 h-6"></i></div><div><p class="text-[10px] font-black uppercase tracking-widest opacity-60 text-left">Atrasadas</p><p class="text-5xl font-black text-slate-800 tracking-tighter leading-none">08</p></div></div></div>
+                </div>
+                <!-- Gráfico Mockado Figma -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10 text-slate-800">
+                    <div class="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-xl">
+                        <h3 class="text-[11px] font-black uppercase tracking-widest mb-10 flex items-center gap-2"><i data-lucide="bar-chart" class="w-4 h-4 text-cyan-500"></i> Tarefas Concluídas</h3>
+                        <div class="h-64 flex items-end justify-between px-4 gap-4">
+                            <div class="w-full bg-cyan-100 h-[30%] rounded-t-lg"></div><div class="w-full bg-cyan-200 h-[50%] rounded-t-lg"></div><div class="w-full bg-cyan-400 h-[40%] rounded-t-lg"></div><div class="w-full bg-cyan-600 h-[90%] rounded-t-lg shadow-lg"></div><div class="w-full bg-cyan-500 h-[60%] rounded-t-lg"></div><div class="w-full bg-slate-200 h-[20%] rounded-t-lg"></div><div class="w-full bg-slate-300 h-[10%] rounded-t-lg"></div>
+                        </div>
+                        <div class="flex justify-between mt-4 text-[9px] font-black text-slate-400 uppercase"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-xl flex items-center justify-center">
+                        <div class="text-center">
+                            <i data-lucide="line-chart" class="w-12 h-12 text-blue-100 mx-auto mb-4"></i>
+                            <p class="text-slate-400 font-bold uppercase text-[10px] tracking-widest leading-none">Performance Global +18%</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -103,7 +119,7 @@
             <div id="tab-projetos" class="hidden animate-in fade-in slide-in-from-right duration-500">
                 <div class="flex justify-between items-center mb-12">
                     <h2 class="text-4xl font-black text-slate-800 tracking-tighter">Gerenciamento de Projetos</h2>
-                    <button class="bg-cyan-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest">+ Novo Projeto</button>
+                    <button class="bg-cyan-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-cyan-600/30">+ Novo Projeto</button>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="bg-slate-100/50 p-8 rounded-[3rem] min-h-[600px] border border-slate-200/50">
@@ -118,11 +134,18 @@
                 </div>
             </div>
 
+            <!-- TAB: ANALYTICS -->
+            <div id="tab-analytics" class="hidden animate-in fade-in duration-500 text-center py-40">
+                <i data-lucide="pie-chart" class="w-20 h-20 text-cyan-100 mx-auto mb-8"></i>
+                <h2 class="text-3xl font-black text-slate-800 uppercase tracking-tighter">Relatórios da Colmeia</h2>
+                <p class="text-slate-400 mt-2 font-medium">Sincronização de dados financeiros e operacionais em progresso...</p>
+            </div>
+
             <!-- TAB: EQUIPE -->
             <div id="tab-equipe" class="hidden animate-in fade-in slide-in-from-right duration-500">
                 <div class="flex justify-between items-center mb-12">
                     <h2 class="text-4xl font-black text-slate-800 tracking-tighter">Gerenciamento de Equipe</h2>
-                    <button class="bg-indigo-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest">+ Convidar Membro</button>
+                    <button class="bg-indigo-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-600/20">+ Convidar Membro</button>
                 </div>
                 <div class="bg-white rounded-[3rem] border border-slate-100 shadow-2xl p-20 text-center">
                     <div class="w-20 h-20 bg-slate-50 rounded-3xl flex items-center justify-center text-slate-200 mx-auto mb-6"><i data-lucide="user-plus" class="w-10 h-10"></i></div>
@@ -131,21 +154,22 @@
             </div>
 
         </main>
-        <footer class="p-10 bg-cyan-600 text-white text-center mt-auto"><h3 class="text-xl font-black uppercase italic tracking-tighter leading-none">Performance Geral +18%</h3></footer>
+        <footer class="p-10 bg-cyan-600 text-white text-center mt-auto"><h3 class="text-xl font-black uppercase italic tracking-tighter leading-none shadow-sm">Performance Geral +18%</h3></footer>
     </div>
 
     <script>
         lucide.createIcons();
         function navigateTo(id) { 
             document.querySelectorAll('body > div').forEach(div => div.classList.add('hidden')); 
-            document.getElementById('view-' + id).classList.remove('hidden'); 
+            const target = document.getElementById('view-' + id);
+            if(target) target.classList.remove('hidden'); 
             window.scrollTo(0, 0); 
             lucide.createIcons(); 
         }
         function showTab(id) {
             document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.add('hidden'));
             document.getElementById('tab-' + id).classList.remove('hidden');
-            document.querySelectorAll('nav button').forEach(btn => {
+            document.querySelectorAll('header nav button').forEach(btn => {
                 btn.classList.remove('active-tab', 'text-cyan-600');
                 btn.classList.add('text-slate-400');
             });
